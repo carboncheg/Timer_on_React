@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import audioSRC from "./media/bell.wav";
 
 class TimerWrapper extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class TimerWrapper extends React.Component {
           clearInterval(timer);  // очищаем таймер, чтоб таймер не уходил в минус
         }
         this.setState({
-          timeLeft: timeLeft   // timeLeft из строки 10 равен timeLeft из строки 17
+          timeLeft: timeLeft   // timeLeft из строки 11 равен timeLeft из строки 19
         });
       }, 1000);
       return this.setState({timeLeft: timeLeft, timer: timer});
@@ -37,7 +38,7 @@ class TimerWrapper extends React.Component {
             <Button time = '15' startTimer = {this.startTimer}/>
           </div>
           <TimerDisplay timeLeft = {this.state.timeLeft}/>
-          <audio id = "end" preload = "auto" src = "https://cloclo38.datacloudmail.ru/weblink/view/3duA/7CX7gBsRp?etag=8F02018E6396842FBB4BB9C002F84142CE7A68EB&key=4cc4a88a885da867606de14ef7d44014d8db9ba0"></audio>
+          <audio id = "end" preload = "auto" src = {audioSRC}></audio>
         </div>
       )
     }
